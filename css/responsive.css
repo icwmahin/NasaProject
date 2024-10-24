@@ -18,4 +18,69 @@
   .sidebar {
     width: 100%;
   }
+  nav a {
+    padding: 0 15px;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+  }
+
+  #weather-button {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+
+  .box {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  img {
+    width: 100px;
+    margin-bottom: 5px;
+  }
+
+  .main-box {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .main-box h2 {
+    font-size: 2rem;
+  }
+
+  .main-box p {
+    font-size: 1rem;
+  }
+
+  .disaster-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  .disaster-card h1 {
+    font-size: 1.2rem;
+  }
+
+  .disaster-card p {
+    font-size: 0.8rem;
+  }
+
+  .left-btn,
+  .right-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.6rem;
+  }
+
+  .popup-content {
+    width: 250px;
+  }
 }

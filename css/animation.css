@@ -6,3 +6,11 @@
     transform: rotate(360deg);
   }
 }
+@keyframes gar {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
