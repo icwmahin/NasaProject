@@ -521,3 +521,44 @@ img {
 .cardsTwoBox {
   margin: 0.8rem;
 }
+/* Container for disaster cards */
+.disasterAll {
+  padding: 1rem;
+  background-color: var(--french-gray-2); /* Matches the background */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual disaster card styling */
+.disaster-box {
+  background-color: var(--onyx); /* Matches the dark background */
+  border: 1px solid var(--outer-space);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 280px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card content styling */
+.disaster-box h2 {
+  font-size: 1.2rem;
+  color: var(--seasalt);
+  margin-bottom: 0.5rem;
+}
+
+.disaster-box p {
+  font-size: 0.9rem;
+  color: var(--platinum);
+}
+
+/* Hover effect for the cards */
+.disaster-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
