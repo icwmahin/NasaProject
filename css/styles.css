@@ -141,6 +141,8 @@ nav li:first-child {
   width: 100%;
   opacity: 0;
   animation: fadeIn 2s forwards;
+  border-radius: 0rem 0rem 1rem 1rem;
+  box-shadow: 2px 2px 12px #ffffff34;
 }
 
 @keyframes fadeIn {
@@ -155,7 +157,7 @@ nav li:first-child {
   align-items: center;
   height: 100%;
   width: 100%;
-
+  text-align: center;
   font-family: Fera Code Pro, monospace;
 }
 .hero-content {
@@ -175,18 +177,22 @@ nav li:first-child {
   font-size: 1.5rem;
 }
 
-@media (max-width: 800px) {
-  .hideOnMobile {
-    display: none;
-  }
-
-  .hideOnpc {
-    display: block;
-  }
+#weather-button {
+  background-color: var(--indigo-dye);
+  color: var(--color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
 }
-
-@media (max-width: 400px) {
-  .sidebar {
-    width: 100%;
-  }
+#weather-button a {
+  color: var(--color);
+  text-decoration: none;
+}
+#weather-button:hover {
+  background-color: var(--prussian-blue);
+  color: var(--color);
+  transition: all 0.3s ease-in-out;
 }

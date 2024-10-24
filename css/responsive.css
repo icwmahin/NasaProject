@@ -1,0 +1,15 @@
+@media (max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  .hideOnpc {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
+}
