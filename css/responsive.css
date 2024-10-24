@@ -3,6 +3,12 @@
     display: none;
   }
 
+  .disaster-card {
+    width: 100%;
+  }
+  #hero {
+    height: 50svh;
+  }
   .hideOnpc {
     display: block;
   }
