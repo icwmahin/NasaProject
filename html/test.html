@@ -5,56 +5,121 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             background-color: #1a1a1a;
-            color: #ffffff;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
         }
 
-        #apod-container {
-            text-align: center;
+        h1 {
+            color: #66ccff;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
             max-width: 600px;
+            background-color: #333;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #66ccff;
         }
 
         img {
             max-width: 100%;
             border-radius: 8px;
+            margin-top: 10px;
         }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astronomy Picture of the Day</title>
+    <title>NASA APIs Showcase</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="apod-container">
-        <h1>Astronomy Picture of the Day</h1>
-        <h2 id="title"></h2>
-        <img id="apod-image" alt="Astronomy Picture of the Day">
-        <p id="date"></p>
-        <p id="description"></p>
-    </div>
-    <script>
-        const apiKey = 'rIBvAPngmMs4Qna99Z4A0kWcqgEsTdALQmdfgGZF'; // Replace with your actual API key
-        const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+    <h1>NASA APIs Showcase</h1>
 
-        fetch(apiUrl)
+    <!-- APOD: Astronomy Picture of the Day -->
+    <section id="apod-section">
+        <h2>APOD: Astronomy Picture of the Day</h2>
+        <img id="apod-image" alt="Astronomy Picture of the Day">
+        <p id="apod-description"></p>
+    </section>
+
+    <!-- NeoWs: Near Earth Object Web Service -->
+    <section id="neo-section">
+        <h2>Asteroids NeoWs: Near Earth Object Web Service</h2>
+        <div id="neo-data"></div>
+    </section>
+
+    <!-- DONKI: Space Weather Database -->
+    <section id="donki-section">
+        <h2>DONKI: Space Weather Database</h2>
+        <div id="donki-data"></div>
+    </section>
+
+    <!-- Mars Rover Photos -->
+    <section id="mars-section">
+        <h2>Mars Rover Photos</h2>
+        <img id="mars-photo" alt="Mars Rover Photo">
+        <p id="mars-photo-date"></p>
+    </section>
+
+    <script>
+        const apiKey = 'rIBvAPngmMs4Qna99Z4A0kWcqgEsTdALQmdfgGZF';
+
+        // Fetch and display data for APOD (Astronomy Picture of the Day)
+        fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
             .then(response => response.json())
             .then(data => {
-                document.getElementById('title').textContent = data.title;
                 document.getElementById('apod-image').src = data.url;
-                document.getElementById('date').textContent = `Date: ${data.date}`;
-                document.getElementById('description').textContent = data.explanation;
+                document.getElementById('apod-description').textContent = data.explanation;
             })
-            .catch(error => {
-                console.error('Error fetching APOD:', error);
-                document.getElementById('description').textContent = 'Could not load the image. Please try again later.';
-            });
+            .catch(error => console.error('Error fetching APOD:', error));
 
+        // Fetch and display data for Near Earth Objects (NeoWs)
+        fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-10-01&end_date=2023-10-07&api_key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                const neoData = data.near_earth_objects;
+                let neoContent = '';
+                for (const date in neoData) {
+                    neoData[date].forEach(neo => {
+                        neoContent += `<p>${neo.name} - Close Approach Date: ${neo.close_approach_data[0].close_approach_date}</p>`;
+                    });
+                }
+                document.getElementById('neo-data').innerHTML = neoContent;
+            })
+            .catch(error => console.error('Error fetching NeoWs data:', error));
+
+        // Fetch and display data for DONKI (Space Weather Database)
+        // fetch(`https://api.nasa.gov/DONKI/notifications?type=all&api_key=${apiKey}`)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         let donkiContent = '';
+        //         data.forEach(event => {
+        //             donkiContent += `<p>${event.messageType}: ${event.messageBody}</p>`;
+        //         });
+        //         document.getElementById('donki-data').innerHTML = donkiContent;
+        //     })
+        //     .catch(error => console.error('Error fetching DONKI data:', error));
+
+        // Fetch and display data for Mars Rover Photos
+        fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                const photo = data.photos[0];
+                document.getElementById('mars-photo').src = photo.img_src;
+                document.getElementById('mars-photo-date').textContent = `Photo taken on: ${photo.earth_date}`;
+            })
+            .catch(error => console.error('Error fetching Mars Rover photos:', error));
 
     </script>
 </body>
