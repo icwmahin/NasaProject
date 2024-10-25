@@ -1,0 +1,114 @@
+        /* !style goes here  */
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 1rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #212529;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .nav-btn {
+            background-color: #343a40;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            margin-left: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        main {
+            padding: 1.5rem;
+        }
+
+        /* Disaster Summary (Top Section) */
+        .disaster-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .summary-box {
+            display: flex;
+            flex-direction: column;
+            background-color: #343a40;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .summary-box p {
+            font-size: 1.2rem;
+        }
+
+        .world-map img {
+            width: 500px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Disaster List (Grid of Cards) */
+        .disaster-list {
+            margin-top: 1rem;
+        }
+
+        .disaster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .disaster-card {
+            background-color: #212529;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .disaster-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .disaster-card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .disaster-card p {
+            font-size: 1rem;
+            color: #dcdcdc;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #343a40;
+            text-align: left;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }

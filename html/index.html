@@ -1,289 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Global Disaster Alert App</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="../css/fonts.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/animation.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
-    <!-- linking font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <!-- Navigation Menu -->
-    <nav>
-      <ul class="sidebar">
-        <li>
-          <a href="#" id="closeSidebar"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#5f6368"
-            >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Disaster Alert App</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/animation.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <!-- linking font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- Navigation Menu -->
+  <nav>
+    <ul class="sidebar">
+      <li>
+        <a href="#" id="closeSidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+            width="24px" fill="#5f6368">
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+          </svg></a>
+      </li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Register</a></li>
+    </ul>
+    <ul>
+      <li><a id="logo" href="#">GNDA</a></li>
+      <li class="hideOnMobile"><a href="#">About</a></li>
+      <li class="hideOnMobile"><a href="#">Contact</a></li>
+      <li class="hideOnMobile"><a href="#">Login</a></li>
+      <li class="hideOnMobile"><a href="#">Register</a></li>
+      <li class="hideOnpc">
+        <a href="#" id="openSidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+          </svg></a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Hero Section with a Background Image -->
+  <section id="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Global Disaster Alert App</h1>
+        <p>Get alerts for disasters around the world</p>
+        <a href="#"><button id="weather-button">Open App</button></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Box Section -->
+  <div class="box1">
+    <section class="three-boxes">
+      <!-- Home Box -->
+      <div class="box home-box">
+        <h2>Home</h2>
+        <img id="earth-image" src="../assets/image/earth-image.png" alt="Earth Image" />
+        <div class="temperature-bar">
+          <span class="temp-label">Temperature: 25°C</span>
+          <div class="bar">
+            <div class="fill" style="width: 40%"></div>
+          </div>
+        </div>
+        <button class="output-btn">Output</button>
+        <p id="output-text">output</p>
+      </div>
+
+      <!-- Disaster Box -->
+      <div class="box disaster-box">
+        <h2>Disaster</h2>
+        <!-- https://via.placeholder.com/150 -->
+        <img src="https://via.placeholder.com/10" alt="Disaster Image" />
+        <span>Click to see more</span>
+        <div class="temperature-bar">
+          <span class="temp-label">Temperature: 30°C</span>
+          <div class="bar">
+            <div class="fill" style="width: 60%"></div>
+          </div>
+        </div>
+        <button class="output-btn">Output</button>
+        <p id="output-text">output Lorem ipsum dolor sit amet</p>
+      </div>
+
+      <!-- Global Natural Disaster App Box -->
+      <div class="main-box">
+        <h2>Global Natural Disaster App</h2>
+        <p>
+          This app helps monitor global disasters. Stay updated with live
+          disaster alerts and environmental data.
+        </p>
+        <div class="icons">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48" fill="#5f6368">
               <path
-                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-              /></svg
-          ></a>
-        </li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
-      </ul>
-      <ul>
-        <li><a id="logo" href="#">GNDA</a></li>
-        <li class="hideOnMobile"><a href="#">About</a></li>
-        <li class="hideOnMobile"><a href="#">Contact</a></li>
-        <li class="hideOnMobile"><a href="#">Login</a></li>
-        <li class="hideOnMobile"><a href="#">Register</a></li>
-        <li class="hideOnpc">
-          <a href="#" id="openSidebar">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#5f6368"
-            >
+                d="M480-120q-141 0-238.5-97.5T144-456q0-141 97.5-238.5T480-792q141 0 238.5 97.5T816-456q0 141-97.5 238.5T480-120Zm0-60q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82ZM380-556h200v-60H380v60Zm0 160h200v-60H380v60Z" />
+            </svg>
+            <p>Home</p>
+          </div>
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48" fill="#5f6368">
               <path
-                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-              /></svg
-          ></a>
-        </li>
-      </ul>
-    </nav>
-    <!-- Hero Section with a Background Image -->
-    <section id="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1>Global Disaster Alert App</h1>
-          <p>Get alerts for disasters around the world</p>
-          <a href="#"><button id="weather-button">Open App</button></a>
+                d="M480-40q-141 0-238.5-97.5T144-376q0-141 97.5-238.5T480-712q141 0 238.5 97.5T816-376q0 141-97.5 238.5T480-40Zm0-60q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82ZM480-200q33 0 55.5-22.5T558-278q0-33-22.5-55.5T480-356q-33 0-55.5 22.5T402-278q0 33 22.5 55.5T480-200Zm0-156q75 0 127.5-52.5T660-536q0-33-11-65t-28-57.5q-17-25.5-39-47t-55-34.5q-36-18-74.5-18T358-740q-36 18-59 34.5t-44 47T229-601q-15 29-26 57.5T192-536q0 75 52.5 127.5T480-356Zm0-60Z" />
+            </svg>
+            <p>Location</p>
+          </div>
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48" fill="#5f6368">
+              <path d="M240-240h480v-60H240v60Zm0-180h480v-60H240v60Zm0-180h480v-60H240v60Zm240 360Zm0-180Zm0-180Z" />
+            </svg>
+            <p>Settings</p>
+          </div>
         </div>
       </div>
     </section>
+  </div>
 
-    <!-- Three Box Section -->
-    <div class="box1">
-      <section class="three-boxes">
-        <!-- Home Box -->
-        <div class="box home-box">
-          <h2>Home</h2>
-          <img
-            id="earth-image"
-            src="../assets/image/earth-image.png"
-            alt="Earth Image"
-          />
-          <div class="temperature-bar">
-            <span class="temp-label">Temperature: 25°C</span>
-            <div class="bar"><div class="fill" style="width: 40%"></div></div>
-          </div>
-          <button class="output-btn">Output</button>
-          <p id="output-text">output</p>
+  <!-- Disaster Explain Card Section -->
+  <div class="cardsTwoBox">
+    <div class="disaster-container">
+      <div class="disaster-card">
+        <div class="disaster-buttons">
+          <button class="left-btn">75%</button>
+          <button class="right-btn" onclick="checkLocation()">
+            <span class="greenlight"></span>
+          </button>
         </div>
+        <img
+          src="https://media.npr.org/assets/img/2023/02/07/gettyimages-1463708921_wide-4f3dd4d43ac47e19adfbdbad05ad995626392d2d.jpg?s=1400&c=100&f=jpeg"
+          alt="Earthquake Image" class="disaster-img" />
+        <h1>Earthquake</h1>
+        <p>
+          Earthquakes occur due to the sudden release of energy in the Earth's
+          crust that creates seismic waves.
+        </p>
+      </div>
 
-        <!-- Disaster Box -->
-        <div class="box disaster-box">
-          <h2>Disaster</h2>
-          <!-- https://via.placeholder.com/150 -->
-          <img src="https://via.placeholder.com/10" alt="Disaster Image" />
-          <span>Click to see more</span>
-          <div class="temperature-bar">
-            <span class="temp-label">Temperature: 30°C</span>
-            <div class="bar"><div class="fill" style="width: 60%"></div></div>
-          </div>
-          <button class="output-btn">Output</button>
-          <p id="output-text">output Lorem ipsum dolor sit amet</p>
+      <div class="disaster-card">
+        <div class="disaster-buttons">
+          <button class="left-btn">60%</button>
+          <button class="right-btn" onclick="checkLocation()">
+            <span class="offGreen"></span>
+          </button>
         </div>
+        <img src="https://bsmedia.business-standard.com/_media/bs/img/article/2024-01/25/full/1706206527-8399.jpg"
+          alt="Flood Image" class="disaster-img" />
+        <h1>Flood</h1>
+        <p>
+          Floods are caused by the overflow of water that submerges land which
+          is usually dry.
+        </p>
+      </div>
 
-        <!-- Global Natural Disaster App Box -->
-        <div class="main-box">
-          <h2>Global Natural Disaster App</h2>
-          <p>
-            This app helps monitor global disasters. Stay updated with live
-            disaster alerts and environmental data.
-          </p>
-          <div class="icons">
-            <div class="icon-box">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="48"
-                viewBox="0 -960 960 960"
-                width="48"
-                fill="#5f6368"
-              >
-                <path
-                  d="M480-120q-141 0-238.5-97.5T144-456q0-141 97.5-238.5T480-792q141 0 238.5 97.5T816-456q0 141-97.5 238.5T480-120Zm0-60q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82ZM380-556h200v-60H380v60Zm0 160h200v-60H380v60Z"
-                />
-              </svg>
-              <p>Home</p>
-            </div>
-            <div class="icon-box">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="48"
-                viewBox="0 -960 960 960"
-                width="48"
-                fill="#5f6368"
-              >
-                <path
-                  d="M480-40q-141 0-238.5-97.5T144-376q0-141 97.5-238.5T480-712q141 0 238.5 97.5T816-376q0 141-97.5 238.5T480-40Zm0-60q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82ZM480-200q33 0 55.5-22.5T558-278q0-33-22.5-55.5T480-356q-33 0-55.5 22.5T402-278q0 33 22.5 55.5T480-200Zm0-156q75 0 127.5-52.5T660-536q0-33-11-65t-28-57.5q-17-25.5-39-47t-55-34.5q-36-18-74.5-18T358-740q-36 18-59 34.5t-44 47T229-601q-15 29-26 57.5T192-536q0 75 52.5 127.5T480-356Zm0-60Z"
-                />
-              </svg>
-              <p>Location</p>
-            </div>
-            <div class="icon-box">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="48"
-                viewBox="0 -960 960 960"
-                width="48"
-                fill="#5f6368"
-              >
-                <path
-                  d="M240-240h480v-60H240v60Zm0-180h480v-60H240v60Zm0-180h480v-60H240v60Zm240 360Zm0-180Zm0-180Z"
-                />
-              </svg>
-              <p>Settings</p>
-            </div>
-          </div>
+      <div class="disaster-card">
+        <div class="disaster-buttons">
+          <button class="left-btn">40%</button>
+          <button class="right-btn" onclick="checkLocation()">
+            <span class="dullYeollow"></span>
+          </button>
         </div>
-      </section>
-    </div>
+        <img
+          src="https://www.belfor.com/us/wp-content/uploads/sites/2/2024/08/Tropical-Storm-vs-Hurricane-What_s-the-Difference.jpeg"
+          alt="Hurricane Image" class="disaster-img" />
+        <h1>Hurricane</h1>
+        <p>
+          Hurricanes are powerful storms that form over warm ocean waters and
+          move toward land, causing wind and rain damage.
+        </p>
+      </div>
 
-    <!-- Disaster Explain Card Section -->
-    <div class="cardsTwoBox">
-      <div class="disaster-container">
-        <div class="disaster-card">
-          <div class="disaster-buttons">
-            <button class="left-btn">75%</button>
-            <button class="right-btn" onclick="checkLocation()">
-              <span class="greenlight"></span>
-            </button>
-          </div>
-          <img
-            src="https://media.npr.org/assets/img/2023/02/07/gettyimages-1463708921_wide-4f3dd4d43ac47e19adfbdbad05ad995626392d2d.jpg?s=1400&c=100&f=jpeg"
-            alt="Earthquake Image"
-            class="disaster-img"
-          />
-          <h1>Earthquake</h1>
-          <p>
-            Earthquakes occur due to the sudden release of energy in the Earth's
-            crust that creates seismic waves.
-          </p>
+      <div class="disaster-card">
+        <div class="disaster-buttons">
+          <button class="left-btn">30%</button>
+          <button class="right-btn" onclick="checkLocation()">
+            <span class="yellow"></span>
+          </button>
         </div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/05/Burnout_ops_on_Mangum_Fire_McCall_Smokejumpers.jpg"
+          alt="Wildfire Image" class="disaster-img" />
+        <h1>Wildfire</h1>
+        <p>
+          Wildfires are uncontrolled fires that spread rapidly, especially in
+          areas with dry vegetation.
+        </p>
+      </div>
 
-        <div class="disaster-card">
-          <div class="disaster-buttons">
-            <button class="left-btn">60%</button>
-            <button class="right-btn" onclick="checkLocation()">
-              <span class="offGreen"></span>
-            </button>
-          </div>
-          <img
-            src="https://bsmedia.business-standard.com/_media/bs/img/article/2024-01/25/full/1706206527-8399.jpg"
-            alt="Flood Image"
-            class="disaster-img"
-          />
-          <h1>Flood</h1>
-          <p>
-            Floods are caused by the overflow of water that submerges land which
-            is usually dry.
-          </p>
+      <div class="disaster-card">
+        <div class="disaster-buttons">
+          <button class="left-btn">20%</button>
+          <button class="right-btn" onclick="checkLocation()">
+            <span class="red"></span>
+          </button>
         </div>
-
-        <div class="disaster-card">
-          <div class="disaster-buttons">
-            <button class="left-btn">40%</button>
-            <button class="right-btn" onclick="checkLocation()">
-              <span class="dullYeollow"></span>
-            </button>
-          </div>
-          <img
-            src="https://www.belfor.com/us/wp-content/uploads/sites/2/2024/08/Tropical-Storm-vs-Hurricane-What_s-the-Difference.jpeg"
-            alt="Hurricane Image"
-            class="disaster-img"
-          />
-          <h1>Hurricane</h1>
-          <p>
-            Hurricanes are powerful storms that form over warm ocean waters and
-            move toward land, causing wind and rain damage.
-          </p>
-        </div>
-
-        <div class="disaster-card">
-          <div class="disaster-buttons">
-            <button class="left-btn">30%</button>
-            <button class="right-btn" onclick="checkLocation()">
-              <span class="yellow"></span>
-            </button>
-          </div>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/0/05/Burnout_ops_on_Mangum_Fire_McCall_Smokejumpers.jpg"
-            alt="Wildfire Image"
-            class="disaster-img"
-          />
-          <h1>Wildfire</h1>
-          <p>
-            Wildfires are uncontrolled fires that spread rapidly, especially in
-            areas with dry vegetation.
-          </p>
-        </div>
-
-        <div class="disaster-card">
-          <div class="disaster-buttons">
-            <button class="left-btn">20%</button>
-            <button class="right-btn" onclick="checkLocation()">
-              <span class="red"></span>
-            </button>
-          </div>
-          <img
-            src="https://scitechdaily.com/images/Tsunami-Illustration.jpg"
-            alt="Tsunami Image"
-            class="disaster-img"
-          />
-          <h1>Tsunami</h1>
-          <p>
-            Tsunamis are large waves caused by underwater earthquakes or
-            volcanic eruptions that lead to coastal flooding.
-          </p>
-        </div>
+        <img src="https://scitechdaily.com/images/Tsunami-Illustration.jpg" alt="Tsunami Image" class="disaster-img" />
+        <h1>Tsunami</h1>
+        <p>
+          Tsunamis are large waves caused by underwater earthquakes or
+          volcanic eruptions that lead to coastal flooding.
+        </p>
       </div>
     </div>
+  </div>
 
-    <!-- Popup Modal -->
-    <div id="location-popup" class="popup">
-      <div class="popup-content">
-        <span class="close-btn" onclick="closePopup()">&times;</span>
-        <p>Your location is currently safe from this disaster!</p>
-      </div>
+  <!-- Popup Modal -->
+  <div id="location-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <p>Your location is currently safe from this disaster!</p>
     </div>
+  </div>
 
-    <!-- disaster-list -->
+  <!-- disaster-list -->
 
-    <!-- This is where we will display disaster cards -->
+  <!-- This is where we will display disaster cards -->
 
-    <!-- <i class="fa-solid fa-toggle-on" style="color: #B197FC;"></i> -->
-    <script src="../JS/app.js"></script>
-    <script src="../JS/data.js"></script>
-  </body>
+  <!-- <i class="fa-solid fa-toggle-on" style="color: #B197FC;"></i> -->
+  <script src="../JS/app.js"></script>
+  <script src="../JS/data.js"></script>
+</body>
+
 </html>

@@ -201,9 +201,6 @@ nav li:first-child {
 
 /* Card Section */
 
-.box1 {
-  margin: 1rem;
-}
 .three-boxes {
   margin-top: 1rem;
   display: flex;
@@ -215,6 +212,7 @@ nav li:first-child {
   gap: 0.5rem;
 }
 .box {
+  margin: 1rem;
   color: var(--seasalt);
   padding: 20px;
   display: flex;
@@ -539,7 +537,6 @@ img {
   border: 1px solid var(--outer-space);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  width: 280px;
   padding: 1rem;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

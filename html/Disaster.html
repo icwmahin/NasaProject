@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/disaster.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <h1>Disaster Alert</h1>
+        </div>
+        <div class="header-right">
+            <button class="nav-btn">Map</button>
+            <button class="nav-btn">Last Updated</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="disaster-summary">
+            <div class="summary-box">
+                <p class="disaster-metric">Disasters: <span>25</span></p>
+                <p class="last-updated">Last Updated: <span>28:39</span></p>
+            </div>
+            <div class="world-map">
+                <!-- Placeholder for the Map Image or Map Integration -->
+                <img src="path-to-map-image" alt="World Map with Disaster Markers" />
+            </div>
+        </section>
+
+        <section class="disaster-list">
+            <h2>Disasters</h2>
+            <div id="disasterAll" class="disaster-grid">
+                <!-- Disaster cards will be inserted dynamically using JavaScript -->
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-left">
+                <p>Data provided by: USGS, GDACS</p>
+            </div>
+        </footer>
+    </main>
+    <script src="../JS/data.js"></script>
+</body>
+
+</html>
