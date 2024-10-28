@@ -213,12 +213,15 @@ nav li:first-child {
 
 .disaster-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  flex-direction: row;
   gap: 1rem;
   margin: 0 auto;
   width: 100%;
   max-width: 1600px;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
 }
 
 /* Individual disaster cards */
@@ -330,16 +333,19 @@ nav li:first-child {
 }
 
 .about-section {
-  padding: 2rem 0;
+  padding: 2rem;
   background-color: #1f1f1f;
-  margin: 1rem;
+  margin: 1rem auto;
+  width: 80%;
+  border-radius: 24px;
+  box-shadow: 2px 2px 12px #081850ab;
 }
 
 .about-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap-reverse;
   gap: 2rem;
   max-width: 1200px;
@@ -347,8 +353,8 @@ nav li:first-child {
 }
 
 .about-container img {
-  width: 300px;
-  height: auto;
+  height: 400px;
+  width: 400px;
   padding: 0.5rem;
   border-radius: 24px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
