@@ -1,8 +1,3 @@
-
-
-
-
-
 // !Scene, Camera, and Renderer Setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
@@ -12,11 +7,11 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+
 // Raycaster and Mouse
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 const planetTooltip = document.getElementById('planet-tooltip');
-
 // Lights
 const ambientLight = new THREE.AmbientLight(0xffff00, 0.4);
 scene.add(ambientLight);
@@ -27,21 +22,8 @@ scene.add(light);
 // Sun with Glow
 const sunTexture = new THREE.TextureLoader().load('../assets/image/sun.jpg');
 const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
-const sun = new THREE.Mesh(new THREE.SphereGeometry(120, 64, 64), sunMaterial); // Increased size
+const sun = new THREE.Mesh(new THREE.SphereGeometry(40, 64, 64), sunMaterial);
 scene.add(sun);
-
-// Sun Glow Effect
-const sunGlowGeometry = new THREE.SphereGeometry(128, 64, 64); // Increased size
-const sunGlowMaterial = new THREE.MeshBasicMaterial({ 
-    color: 0xffff00,
-    transparent: true,
-    opacity: .1,
-    blending: THREE.NormalBlending,
-    depthWrite: false,
-});
-const sunGlow = new THREE.Mesh(sunGlowGeometry, sunGlowMaterial);
-sunGlow.scale.set(1, 1, 1);
-scene.add(sunGlow);
 
 // Star Field
 function createStarField() {
@@ -51,9 +33,9 @@ function createStarField() {
     const positions = [];
 
     for (let i = 0; i < starCount; i++) {
-        const x = (Math.random() - 0.5) * 8000; // Increased range
-        const y = (Math.random() - 0.5) * 8000; // Increased range
-        const z = (Math.random() - 0.5) * 8000; // Increased range
+        const x = (Math.random() - 0.5) * 8000;
+        const y = (Math.random() - 0.5) * 8000;
+        const z = (Math.random() - 0.5) * 8000;
         positions.push(x, y, z);
     }
 
@@ -63,21 +45,33 @@ function createStarField() {
 }
 createStarField();
 
+
+// Nebula Background
+const nebulaTexture = new THREE.TextureLoader().load('../assets/image/milky_way.jpg');
+const nebulaMaterial = new THREE.MeshBasicMaterial({
+    map: nebulaTexture,
+    side: THREE.BackSide // Ensure the texture is visible from inside
+});
+const nebulaGeometry = new THREE.SphereGeometry(4000, 32, 32); // Large sphere surrounding the scene
+const nebula = new THREE.Mesh(nebulaGeometry, nebulaMaterial);
+scene.add(nebula);
+
 // Planets Data
 const planetsData = [
-    { name: "Mercury", distance: 160, size: 12, speed: 0.0015, texture: '../assets/image/mercury.jpg' }, // Increased size and distance
-    { name: "Venus", distance: 240, size: 18, speed: 0.002, texture: '../assets/image/venus.jpg' }, // Increased size and distance
-    { name: "Earth", distance: 320, size: 22, speed: 0.00175, texture: '../assets/image/earth.jpg', moons: 1 }, // Increased size and distance
-    { name: "Mars", distance: 360, size: 18, speed: 0.0015, texture: '../assets/image/mars.jpg', moons: 2 }, // Increased size and distance
-    { name: "Jupiter", distance: 520, size: 30, speed: 0.00125, texture: '../assets/image/jupiter.jpg', moons: 4 }, // Increased size and distance
-    { name: "Saturn", distance: 680, size: 26, speed: 0.001, texture: '../assets/image/saturn.jpg', moons: 6 }, // Increased size and distance
-    { name: "Uranus", distance: 840, size: 20, speed: 0.00075, texture: '../assets/image/uranus.jpg', moons: 3 }, // Increased size and distance
-    { name: "Neptune", distance: 960, size: 20, speed: 0.0006, texture: '../assets/image/neptune.jpg', moons: 1 }, // Increased size and distance
+    { name: "Mercury", distance: 80, size: 10, speed: 0.0015, texture: '../assets/image/mercury.jpg' },
+    { name: "Venus", distance: 130, size: 12, speed: 0.002, texture: '../assets/image/venus.jpg' },
+    { name: "Earth", distance: 180, size: 16, speed: 0.00175, texture: '../assets/image/earth.jpg', moons: 1 },
+    { name: "Mars", distance: 250, size: 14, speed: 0.0015, texture: '../assets/image/mars.jpg', moons: 2 },
+    { name: "Jupiter", distance: 350, size: 24, speed: 0.00125, texture: '../assets/image/jupiter.jpg', moons: 4 },
+    { name: "Saturn", distance: 400, size: 20, speed: 0.001, texture: '../assets/image/saturn.jpg', moons: 6 },
+    { name: "Uranus", distance: 500, size: 16, speed: 0.00075, texture: '../assets/image/uranus.jpg', moons: 3 },
+    { name: "Neptune", distance: 600, size: 16, speed: 0.0006, texture: '../assets/image/neptune.jpg', moons: 1 },
+    { name: "Pluto", distance: 800, size: 8, speed: 0.0004, texture: '../assets/image/pluto.jpg', moons: 5 },
 ];
 
 // Saturn Ring
 const saturnRingTexture = new THREE.TextureLoader().load('../assets/image/saturn-ring.jpg');
-const saturnRingGeometry = new THREE.RingGeometry(22, 30, 64); // Increased size
+const saturnRingGeometry = new THREE.RingGeometry(22, 30, 64);
 const saturnRingMaterial = new THREE.MeshBasicMaterial({ map: saturnRingTexture, side: THREE.DoubleSide, transparent: true });
 const saturnRing = new THREE.Mesh(saturnRingGeometry, saturnRingMaterial);
 saturnRing.rotation.x = Math.PI / 2;
@@ -99,11 +93,12 @@ planetsData.forEach(planet => {
 
     // Add Moon to Earth
     if (planet.name === "Earth") {
-        const moon = new THREE.Mesh(new THREE.SphereGeometry(4, 16, 16), new THREE.MeshBasicMaterial({ color: 0xaaaaaa })); // Increased size
-        moon.position.set(36, 0, 0); // Increased distance
+        const moonTexture = new THREE.TextureLoader().load('../assets/image/moon.jpg');
+        const moon = new THREE.Mesh(new THREE.SphereGeometry(4, 16, 16), new THREE.MeshBasicMaterial({ map: moonTexture }));
+        moon.position.set(36, 0, 0);
         moon.userData = {
             angle: Math.random() * Math.PI * 2,
-            distance: 36, // Increased distance
+            distance: 36,
             speed: 0.003,
         };
         planetMesh.add(moon);
@@ -122,11 +117,11 @@ planetsData.forEach(planet => {
 const asteroidCount = 500;
 for (let i = 0; i < asteroidCount; i++) {
     const asteroid = new THREE.Mesh(
-        new THREE.SphereGeometry(0.4, 8, 8), // Increased size
+        new THREE.SphereGeometry(0.4, 8, 8),
         new THREE.MeshBasicMaterial({ color: 0xaaaaaa })
     );
     const angle = Math.random() * Math.PI * 2;
-    const radius = 400 + Math.random() * 60; // Increased range
+    const radius = 400 + Math.random() * 60;
     asteroid.position.set(Math.cos(angle) * radius, (Math.random() - 0.5) * 5, Math.sin(angle) * radius);
     asteroid.userData = { angle: angle, distance: radius, speed: 0.001 };
     scene.add(asteroid);
@@ -248,27 +243,32 @@ window.addEventListener('resize', () => {
 });
 
 // More Stars with Varying Colors
-function createMoreStars() {
-    const starMaterial = new THREE.PointsMaterial({ size: 0.5 });
-    const starCount = 1000;
+// Enhanced Star Field with Varied Colors
+function createEnhancedStarField() {
     const starGeometry = new THREE.BufferGeometry();
+    const starMaterial = new THREE.PointsMaterial({ vertexColors: true, size: 0.7 });
+    const starCount = 1500;
     const positions = [];
     const colors = [];
+
     for (let i = 0; i < starCount; i++) {
-        const x = (Math.random() - 0.5) * 8000; // Increased range
-        const y = (Math.random() - 0.5) * 8000; // Increased range
-        const z = (Math.random() - 0.5) * 8000; // Increased range
+        const x = (Math.random() - 0.5) * 8000;
+        const y = (Math.random() - 0.5) * 8000;
+        const z = (Math.random() - 0.5) * 8000;
         positions.push(x, y, z);
+
+        // Assign random colors
         const color = new THREE.Color(Math.random(), Math.random(), Math.random());
         colors.push(color.r, color.g, color.b);
     }
+
     starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
     starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-    const stars = new THREE.Points(starGeometry, starMaterial);
-    scene.add(stars);
+    const enhancedStars = new THREE.Points(starGeometry, starMaterial);
+    scene.add(enhancedStars);
 }
-createMoreStars();
-createStarField();
+createEnhancedStarField();
+
 
 
 
