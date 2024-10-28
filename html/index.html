@@ -7,48 +7,48 @@
   <title>Global Disaster Alert App</title>
   <link rel="stylesheet" href="../css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="../css/fonts.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/animation.css" />
   <link rel="stylesheet" href="../css/responsive.css" />
-  <!-- linking font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-  <!-- Navigation Menu -->
-  <nav>
-    <ul class="sidebar">
-      <li>
-        <a href="#" id="closeSidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-            width="24px" fill="#fff">
-            <path
-              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-          </svg></a>
-      </li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Login</a></li>
-      <li><a href="#">Register</a></li>
-    </ul>
-    <ul>
-      <li><a id="logo" href="#">GNDA</a></li>
-      <li class="hideOnMobile"><a href="#">About</a></li>
-      <li class="hideOnMobile"><a href="#">Contact</a></li>
-      <li class="hideOnMobile"><a href="#">Login</a></li>
-      <li class="hideOnMobile"><a href="#">Register</a></li>
-      <li class="hideOnpc">
-        <a href="#" id="openSidebar">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
-            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-          </svg></a>
-      </li>
-    </ul>
-  </nav>
-  <!-- Hero Section with a Background Image -->
+  <!-- !Navigation Menu -->
+  <div class="navigation">
+    <nav>
+      <ul class="sidebar">
+        <li>
+          <a href="#" id="closeSidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#fff">
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg></a>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+      </ul>
+      <ul>
+        <li><a id="logo" href="#">GNDA</a></li>
+        <li class="hideOnMobile"><a href="#">About</a></li>
+        <li class="hideOnMobile"><a href="#">Contact</a></li>
+        <li class="hideOnMobile"><a href="#">Login</a></li>
+        <li class="hideOnMobile"><a href="#">Register</a></li>
+        <li class="hideOnpc">
+          <a href="#" id="openSidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+              <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+            </svg></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!--! Hero Section-->
   <section id="hero">
     <div class="hero-container">
       <div class="hero-content">
@@ -59,75 +59,24 @@
     </div>
   </section>
 
-  <!-- Three Box Section -->
-  <div class="box1">
-    <section class="three-boxes">
-      <!-- Home Box -->
-      <div class="box home-box">
-        <h2>Home</h2>
-        <img id="earth-image" src="../assets/image/earth.png" alt="Earth Image" />
-        <div class="temperature-bar">
-          <span class="temp-label">Temperature: 25°C</span>
-          <div class="bar">
-            <div class="fill" style="width: 40%"></div>
-          </div>
-        </div>
-        <button class="output-btn">Output</button>
-        <p id="output-text">output</p>
-      </div>
 
-      <!-- Disaster Box -->
-      <div class="box disaster-box">
-        <h2>Disaster</h2>
-        <!-- https://via.placeholder.com/150 -->
-        <img
-          src="../assets/image/DALL·E 2024-10-24 02.21.56 - A clean, modern UI design for a global natural disaster alert app. The home page features a dashboard with disaster cards showing the type, location, .webp"
-          alt="Disaster Image" />
-        <span>Click to see more</span>
-        <div class="temperature-bar">
-          <span class="temp-label">Temperature: 30°C</span>
-          <div class="bar">
-            <div class="fill" style="width: 60%"></div>
-          </div>
-        </div>
-        <button class="output-btn">Output</button>
-        <p id="output-text">output Lorem ipsum dolor sit amet</p>
-      </div>
-
-      <!-- Global Natural Disaster App Box -->
-      <div class="main-box">
-        <h2>Global Natural Disaster App</h2>
+  <!-- !about section  -->
+  <section class="about-section">
+    <div class="about-container">
+      <img class="about-image"
+        src="https://img.freepik.com/free-photo/space-background-with-stardust-shining-stars-realistic-colorful-cosmos-with-nebula-milky-way_1258-150925.jpg?t=st=1730111112~exp=1730114712~hmac=1601d821ab2e261f7d44273e17e0f88fbb3d7260ad900d1b73814322c1569315&w=826"
+        alt="About Image" />
+      <div class="about-content">
+        <h2>About Us</h2>
         <p>
-          This app helps monitor global disasters. Stay updated with live
-          disaster alerts and environmental data.
+          We're a team of scientists and engineers dedicated to providing
+          accurate and timely information about global natural disasters.
         </p>
-        <div class="icons">
-          <div class="icon-box">
-            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48" fill="#5f6368">
-              <path
-                d="M480-120q-141 0-238.5-97.5T144-456q0-141 97.5-238.5T480-792q141 0 238.5 97.5T816-456q0 141-97.5 238.5T480-120Zm0-60q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82ZM380-556h200v-60H380v60Zm0 160h200v-60H380v60Z" />
-            </svg>
-            <p>Home</p>
-          </div>
-          <div class="icon-box">
-            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48" fill="#5f6368">
-              <path
-                d="M480-40q-141 0-238.5-97.5T144-376q0-141 97.5-238.5T480-712q141 0 238.5 97.5T816-376q0 141-97.5 238.5T480-40Zm0-60q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82ZM480-200q33 0 55.5-22.5T558-278q0-33-22.5-55.5T480-356q-33 0-55.5 22.5T402-278q0 33 22.5 55.5T480-200Zm0-156q75 0 127.5-52.5T660-536q0-33-11-65t-28-57.5q-17-25.5-39-47t-55-34.5q-36-18-74.5-18T358-740q-36 18-59 34.5t-44 47T229-601q-15 29-26 57.5T192-536q0 75 52.5 127.5T480-356Zm0-60Z" />
-            </svg>
-            <p>Location</p>
-          </div>
-          <div class="icon-box">
-            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48" fill="#5f6368">
-              <path d="M240-240h480v-60H240v60Zm0-180h480v-60H240v60Zm0-180h480v-60H240v60Zm240 360Zm0-180Zm0-180Z" />
-            </svg>
-            <p>Settings</p>
-          </div>
-        </div>
+        <a href="about.html"><button>Learn More</button></a>
       </div>
-    </section>
-  </div>
-
-  <!-- Disaster Explain Card Section -->
+    </div>
+  </section>
+  <!-- !Disaster Explain Card Section -->
   <div class="cardsTwoBox">
     <div class="disaster-container">
       <div class="disaster-card">
@@ -221,10 +170,6 @@
       <p>Your location is currently safe from this disaster!</p>
     </div>
   </div>
-
-
-
-  <!-- <i class="fa-solid fa-toggle-on" style="color: #B197FC;"></i> -->
   <script src="../JS/app.js"></script>
   <script src="../JS/data.js"></script>
 </body>

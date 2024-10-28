@@ -1,0 +1,35 @@
+<!--! Three Box Section -->
+<div class="box1">
+    <section class="three-boxes">
+        <!-- Home Box -->
+        <div class="box home-box">
+            <h2>Home</h2>
+            <img id="earth-image" src="../assets/image/earth.png" alt="Earth Image" />
+            <div class="temperature-bar">
+                <span class="temp-label">Temperature: 25°C</span>
+                <div class="bar">
+                    <div class="fill" style="width: 40%"></div>
+                </div>
+            </div>
+            <button class="output-btn">Output</button>
+            <p id="output-text">output</p>
+        </div>
+
+        <!-- !Disaster Box -->
+        <div class="box disaster-box">
+            <h2>Disaster</h2>
+            <!-- https://via.placeholder.com/150 -->
+            <img src="../assets/image/DALL·E 2024-10-24 02.21.56 - A clean, modern UI design for a global natural disaster alert app. The home page features a dashboard with disaster cards showing the type, location, .webp"
+                alt="Disaster Image" />
+            <div class="temperature-bar">
+                <span class="temp-label">Temperature: 30°C</span>
+                <div class="bar">
+                    <div class="fill" style="width: 60%"></div>
+                </div>
+            </div>
+            <button class="output-btn">Output</button>
+            <p id="output-text">output Lorem ipsum dolor sit amet</p>
+        </div>
+    </section>
+
+</div>
