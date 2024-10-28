@@ -2,13 +2,98 @@
 <html lang="en">
 
 <head>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        main {
+            background-image: url("space-background.jpg");
+            /* Replace with your space image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .hero {
+            text-align: center;
+        }
+
+        .explore-button {
+            background-color: #fff;
+            color: #111;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Space Travel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>coming soon!</h1>
+    <header>
+        <div class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">DESTINATION</a></li>
+                <li><a href="#">CREW</a></li>
+                <li><a href="#">TECHNOLOGY</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>SO, YOU WANT TO TRAVEL TO</h1>
+            <h1>SPACE</h1>
+            <p>Let's face it: if you want to go to space, you might as well genuinely go to outer space and not hover
+                kind of on the edge of it. Well sit back, and relax because we'll give you a truly out of this world
+                experience!</p>
+            <button class="explore-button">EXPLORE</button>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
