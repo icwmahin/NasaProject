@@ -162,8 +162,6 @@ nav li:first-child {
 }
 
 #hero h1 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
   color: #fff;
   font-size: 3rem;
   /* backdrop-filter: blur(5px); */
@@ -175,6 +173,7 @@ nav li:first-child {
 #hero p {
   font-size: 1.5rem;
   font-weight: 700;
+  color: #efefef
 }
 
 #weather-button {
