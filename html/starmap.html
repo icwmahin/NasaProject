@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Starmap with Planet Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        #info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .planet-details {
+            position: absolute;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            border-radius: 5px;
+            pointer-events: none;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- audio -->
+    <audio autoplay loop>
+        <source src="../assets/audio/starmap.mp3" type="audio/mp3">
+    </audio>
+    <div id="info-panel">
+        <h1>Interactive Starmap with Planet Details</h1>
+        <p>Hover over a planet to see details. Click to learn more.</p>
+    </div>
+    <div id="planet-tooltip" class="planet-details"></div>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script src="../JS/starmap.js"></script>
+
+</body>
+
+</html>

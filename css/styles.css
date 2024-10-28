@@ -353,6 +353,7 @@ nav li:first-child {
 }
 
 .about-container img {
+  margin: 0 auto;
   height: 400px;
   width: 400px;
   padding: 0.5rem;
