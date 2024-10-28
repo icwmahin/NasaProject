@@ -1,5 +1,3 @@
-
-
 // !Scene, Camera, and Renderer Setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
@@ -95,8 +93,7 @@ planetsData.forEach(planet => {
 
     // Add Moon to Earth
     if (planet.name === "Earth") {
-        const moonTexture = new THREE.TextureLoader().load('../assets/image/moon.jpg');
-        const moon = new THREE.Mesh(new THREE.SphereGeometry(4, 16, 16), new THREE.MeshBasicMaterial({ map: moonTexture }));
+        const moon = new THREE.Mesh(new THREE.SphereGeometry(4, 16, 16), new THREE.MeshBasicMaterial({ color: 0xaaaaaa }));
         moon.position.set(36, 0, 0);
         moon.userData = {
             angle: Math.random() * Math.PI * 2,
@@ -227,12 +224,11 @@ function onMouseUp() { isDragging = false; }
 window.addEventListener('mousedown', onMouseDown);
 window.addEventListener('mousemove', onMouseMove);
 window.addEventListener('mouseup', onMouseUp);
-
 // Scroll Zoom
 let zoom = 1;
 window.addEventListener('wheel', (event) => {
     zoom += event.deltaY * -0.0005;
-    zoom = Math.min(Math.max(0.1, zoom), 2);
+    zoom = Math.min(1, Math.max(0.1, zoom)); // Only limit the minimum zoom level
     camera.zoom = zoom;
     camera.updateProjectionMatrix();
 });
@@ -248,7 +244,14 @@ window.addEventListener('resize', () => {
 // Enhanced Star Field with Varied Colors
 function createEnhancedStarField() {
     const starGeometry = new THREE.BufferGeometry();
-    const starMaterial = new THREE.PointsMaterial({ vertexColors: true, size: 0.7 });
+    const starMaterial = new THREE.PointsMaterial({
+        vertexColors: true,
+        size: 0.7,
+        sizeAttenuation: true,
+        transparent: true,
+        blending: THREE.AdditiveBlending,
+        map: new THREE.TextureLoader().load('../assets/image/circle.png'),
+    });
     const starCount = 1500;
     const positions = [];
     const colors = [];
@@ -273,5 +276,53 @@ createEnhancedStarField();
 
 
 
+// Create a draggable zoom slider UI
+const sliderContainer = document.createElement('div');
+sliderContainer.style.position = 'absolute';
+sliderContainer.style.top = '10px';
+sliderContainer.style.right = '10px';
+sliderContainer.style.width = '60px';
+sliderContainer.style.height = '200px';
+sliderContainer.style.background = 'rgba(255, 255, 255, 0.1)';
+sliderContainer.style.borderRadius = '10px';
+sliderContainer.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+sliderContainer.style.display = 'flex';
+sliderContainer.style.alignItems = 'center';
+sliderContainer.style.justifyContent = 'center';
+
+const slider = document.createElement('input');
+slider.type = 'range';
+slider.min = '0.1';
+slider.max = '2';
+slider.step = '0.01';
+slider.value = zoom;
+slider.style.transform = 'rotate(-90deg)';
+slider.style.width = '250px';
+slider.style.appearance = 'none';
+slider.style.background = 'transparent';
+slider.style.cursor = 'pointer';
+
+slider.style.outline = 'none';
+slider.style.borderRadius = '5px';
+slider.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.3)';
+slider.style.transition = 'box-shadow 0.3s ease';
+
+slider.addEventListener('input', (event) => {
+zoom = parseFloat(event.target.value);
+camera.zoom = zoom;
+camera.updateProjectionMatrix();
+slider.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.7)';
+});
+
+slider.addEventListener('mouseenter', () => {
+slider.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.7)';
+});
+
+slider.addEventListener('mouseleave', () => {
+slider.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.3)';
+});
+
+sliderContainer.appendChild(slider);
+document.body.appendChild(sliderContainer);
 
 
