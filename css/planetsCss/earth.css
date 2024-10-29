@@ -13,10 +13,19 @@ body {
   color: white;
   background-color: #0b0d17;
 }
+#earth-image {
+  filter: drop-shadow(2px 2px 12px #192aac);
+}
+#moon-image {
+  filter: drop-shadow(2px 2px 12px #cccccc);
+}
 
+#satellite-image {
+  filter: drop-shadow(2px 2px 12px #bfa621);
+}
 .forBg {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../assets/image/earth-bg.jpg");
+    url("../../assets/image/earth-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,8 +40,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
-
 .logo {
   width: 50px;
   height: 50px;
@@ -46,12 +55,16 @@ header {
   color: white;
   display: none;
   cursor: pointer;
+  position: absolute;
+  right: 20px;
 }
 
 /* Desktop navigation */
 nav {
   display: flex;
-  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 nav ul {
@@ -59,7 +72,7 @@ nav ul {
   display: flex;
   flex-wrap: wrap;
   background-color: rgba(85, 85, 85, 0.233);
-  border-radius: 5px;
+  border-radius: 12px;
   border: 1px solid rgba(94, 94, 94, 0.247);
   padding: 0.8rem;
   backdrop-filter: blur(10px);
@@ -96,34 +109,6 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
-/* Mobile menu */
-@media (max-width: 768px) {
-  li a span {
-    display: none;
-  }
-  nav {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #0b0d17;
-    padding: 20px;
-    border-radius: 5px;
-    flex-direction: column;
-    width: 200px;
-  }
-  nav ul li a {
-    padding: 0.2rem;
-  }
-  nav.open {
-    display: flex;
-  }
-
-  .hamburger-menu {
-    display: block;
-  }
-}
-
 /* Main section styles */
 main {
   display: flex;
@@ -151,7 +136,7 @@ main {
 }
 
 .planet-image img {
-  width: 350px;
+  width: 400px;
   height: auto;
   border-radius: 50%;
 }
@@ -209,8 +194,121 @@ main {
   margin-top: 10px;
 }
 
-@media (min-width: 769px) {
+.explore-btn {
+  background-image: linear-gradient(45deg, #2a2dc5, #3980dd, #180950);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* TODO: making responsive  */
+/* Tablet and Medium Screens */
+@media (max-width: 768px) {
+  .logo {
+    margin-right: auto;
+  }
+
+  li a span {
+    display: none;
+  }
+
   nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #0b0d17;
+    padding: 20px;
+    border-radius: 5px;
     flex-direction: column;
+    width: 200px;
+  }
+
+  nav ul li a {
+    padding: 0.2rem;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .planet-info {
+    flex-direction: column;
+  }
+
+  .planet-details h1 {
+    font-size: 60px;
+  }
+
+  .planet-details p {
+    font-size: 16px;
+  }
+
+  .planet-stats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Smallest Screens (350px and up) */
+@media (max-width: 350px) {
+  .nav-container {
+    padding: 10px;
+  }
+
+  .hamburger-menu {
+    right: 10px;
+    font-size: 20px;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  nav {
+    top: 50px;
+    right: 10px;
+    width: 180px;
+    padding: 15px;
+  }
+
+  nav ul {
+    padding: 0.5rem;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  .planet-info {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .planet-image img {
+    width: 250px;
+  }
+
+  .planet-details h1 {
+    font-size: 40px;
+  }
+
+  .planet-details p {
+    font-size: 14px;
+  }
+
+  .planet-stats h3 {
+    font-size: 22px;
+  }
+
+  .destination-section h2 {
+    font-size: 18px;
+    margin-bottom: 2rem;
   }
 }
