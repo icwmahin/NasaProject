@@ -1,17 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="../css/planet.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Earth Info</title>
+    <title>It's earth</title>
+    <link rel="stylesheet" href="../css/earth.css" />
   </head>
-  <body>
-    <div class="upper">
-      <span class="upperHeading">Contact Us</span>
-      <div class="upperContent">
-        <span class="upperContentText">Phone: +91 1234567890</span>
-        <span class="upperContentText">Email: 2a5t4@example.com</span>
-    </div>
+  <body class="forBg">
+    <header>
+      <div class="nav-container">
+        <div class="logo"></div>
+        <div class="hamburger-menu" id="menuToggle">&#9776;</div>
+        <nav id="navMenu">
+          <ul>
+            <li>
+              <a href="#earth"><span>00</span> EARTH</a>
+            </li>
+            <li>
+              <a href="#moon"><span>01</span> MOON</a>
+            </li>
+            <li>
+              <a href="#satellite"><span>02</span> SATELLITE</a>
+            </li>
+            <li>
+              <a href="../PlanetDoc/html/earthDoc.html"
+                ><span>04</span> DOCUMENT</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- !earth -->
+    <main id="earth" class="main-container">
+      <section class="destination-section">
+        <h2>OUR PLANET</h2>
+        <div class="planet-info">
+          <div class="planet-image">
+            <img src="../assets/image/pngPlanet/earthpn.png" alt="earth" />
+          </div>
+          <div class="planet-details">
+            <div class="planet-tabs">
+              <a href="#earth" class="active">EARTH</a>
+              <a href="#moon">MOON</a>
+              <a href="#satellite">SATELLITE</a>
+              <a href="../PlanetDoc/html/earthDoc.html">DOCUMENT</a>
+            </div>
+            <h1>EARTH</h1>
+            <p>
+              Don’t forget to pack your hiking boots. You’ll need them to tackle
+              Olympus Mons, the tallest planetary mountain in our solar system.
+              It’s two and a half times the size of Everest!
+            </p>
+            <div class="planet-stats">
+              <div>
+                <span>AVG. DISTANCE</span>
+                <h3>150 MIL. KM</h3>
+              </div>
+              <div>
+                <span>EST. TRAVEL TIME</span>
+                <h3>12 MONTHS</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- !moon -->
+
+    <main id="moon" class="main-container">
+      <section class="destination-section">
+        <h2>OUR MOON</h2>
+        <div class="planet-info">
+          <div class="planet-details">
+            <div class="planet-tabs">
+              <a href="#earth">EARTH</a>
+              <a href="#moon" class="active">MOON</a>
+              <a href="#satellite">SATELLITE</a>
+              <a href="../PlanetDoc/html/earthDoc.html">DOCUMENT</a>
+            </div>
+            <h1>MOON</h1>
+            <p>
+              Get ready to experience the serene beauty of the Moon. Explore its
+              craters and learn about its fascinating history. It's a journey
+              like no other!
+            </p>
+            <div class="planet-stats">
+              <div>
+                <span>AVG. DISTANCE</span>
+                <h3>384,400 KM</h3>
+              </div>
+              <div>
+                <span>EST. TRAVEL TIME</span>
+                <h3>3 DAYS</h3>
+              </div>
+            </div>
+          </div>
+          <div class="planet-image">
+            <img src="../assets/image/pngPlanet/moon.png" alt="moon" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- !satellite -->
+
+    <main id="satellite" class="main-container">
+      <section class="destination-section">
+        <h2>VOYAGER 1</h2>
+        <div class="planet-info">
+          <div class="planet-details">
+            <div class="planet-tabs">
+              <a href="#earth">EARTH</a>
+              <a href="#moon">MOON</a>
+              <a href="#satellite" class="active">SATELLITE</a>
+              <a href="../PlanetDoc/html/earthDoc.html">DOCUMENT</a>
+            </div>
+            <h1>VOYAGER 1</h1>
+            <p>
+              Launched in 1977, Voyager 1 is a space probe that was sent to
+              study the outer Solar System and beyond. It is the most distant
+              human-made object in space.
+            </p>
+            <div class="planet-stats">
+              <div>
+                <span>AVG. DISTANCE</span>
+                <h3>14.2 BILLION KM</h3>
+              </div>
+              <div>
+                <span>EST. TRAVEL TIME</span>
+                <h3>70,000 YEARS</h3>
+              </div>
+            </div>
+          </div>
+          <div class="planet-image">
+            <img src="../assets/image/satellite/voyager.png" alt="voyager1" />
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      document
+        .getElementById("menuToggle")
+        .addEventListener("click", function () {
+          document.getElementById("navMenu").classList.toggle("open");
+        });
+    </script>
   </body>
 </html>
