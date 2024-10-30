@@ -13,6 +13,7 @@ body {
   color: white;
   background-color: #0b0d17;
 }
+
 #earth-image {
   filter: drop-shadow(2px 2px 12px #192aac);
 }
@@ -208,6 +209,17 @@ main {
   .logo {
     margin-right: auto;
   }
+  .planet-tabs a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    width: fit-content;
+  }
+  .body::-webkit-scrollbar {
+    display: none;
+  }
 
   li a span {
     display: none;
@@ -222,6 +234,8 @@ main {
     padding: 20px;
     border-radius: 5px;
     flex-direction: column;
+    width: calc(100vw - 40px);
+    max-width: 200px;
     width: 200px;
   }
 
