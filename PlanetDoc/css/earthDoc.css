@@ -9,6 +9,12 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../../assets/image/earth-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
   font-family: Arial, sans-serif;
   color: white;
   background-color: #0b0d17;
@@ -90,6 +96,24 @@ nav ul li a::after {
 nav ul li a:hover::after {
   width: 100%;
 }
+
+main {
+  border: 1px solid #3752649c;
+  /* border-radius: 12px; */
+  /*************  ✨ Codeium Command 🌟  *************/
+  border-radius: 50%;
+  border-radius: 10px/50%/10px/50%;
+  /******  1df003f9-d422-4452-b88c-2b222323b84c  *******/
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+main h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+/* ! Media Queries */
 
 @media (max-width: 768px) {
   .logo {
