@@ -13,7 +13,6 @@ document.querySelectorAll(".output-btn").forEach((button) => {
     const parentBox = button.closest(".box");
     const outputText = parentBox.querySelector("#output-text");
     const disasterImage = parentBox.querySelector("img");
-
     if (parentBox.classList.contains("home-box")) {
       const date = new Date();
       outputText.textContent = `Date: ${date.toLocaleDateString()} Time: ${date.toLocaleTimeString()}`;
