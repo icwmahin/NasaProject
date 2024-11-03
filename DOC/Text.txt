@@ -1,0 +1,17 @@
+what is bootstrap?
+Download Compiled CSS and js
+install via CDN
+NPM installation
+grid system 
+buttons
+cards
+typography
+responsive images
+Utilities
+Tables
+Alerts
+Nava's & Navbars 
+Icons
+Forms
+Other Components
+Let's build webpage.
