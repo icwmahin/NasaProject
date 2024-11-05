@@ -1,3 +1,3 @@
-document.getElementById("menuToggle").addEventListener("click", function () {
-  document.getElementById("navMenu").classList.toggle("open");
+document.getElementById('menuToggle').addEventListener('click', function() {
+  document.getElementById('navMenu').classList.toggle('open');
 });
