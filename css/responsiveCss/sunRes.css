@@ -1,0 +1,20 @@
+@media (max-width: 768px) {
+    .menu-icon {
+      display: block;
+    }
+  
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      width: 150px;
+    }
+  
+    .facts-grid, .missions-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
