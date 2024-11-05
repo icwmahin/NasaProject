@@ -1,7 +1,8 @@
 // !Scene, Camera, and Renderer Setup
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
-camera.position.z = 600;
+
+const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.5, 5000);
+camera.position.z = 1000;
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -12,6 +13,7 @@ document.body.appendChild(renderer.domElement);
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 const planetTooltip = document.getElementById('planet-tooltip');
+
 // Lights
 const ambientLight = new THREE.AmbientLight(0xffff00, 0.4);
 scene.add(ambientLight);
@@ -33,9 +35,9 @@ function createStarField() {
     const positions = [];
 
     for (let i = 0; i < starCount; i++) {
-        const x = (Math.random() - 0.5) * 8000;
-        const y = (Math.random() - 0.5) * 8000;
-        const z = (Math.random() - 0.5) * 8000;
+        const x = (Math.random() - 0.3) * 8000;
+        const y = (Math.random() - 0.3) * 8000;
+        const z = (Math.random() - 0.3) * 8000;
         positions.push(x, y, z);
     }
 
@@ -52,7 +54,7 @@ const nebulaMaterial = new THREE.MeshBasicMaterial({
     map: nebulaTexture,
     side: THREE.BackSide // Ensure the texture is visible from inside
 });
-const nebulaGeometry = new THREE.SphereGeometry(4000, 32, 32); // Large sphere surrounding the scene
+const nebulaGeometry = new THREE.SphereGeometry(4000, 40, 40); // Large sphere surrounding the scene
 const nebula = new THREE.Mesh(nebulaGeometry, nebulaMaterial);
 scene.add(nebula);
 
@@ -66,21 +68,53 @@ const planetsData = [
     { name: "Saturn", distance: 400, size: 20, speed: 0.001, texture: '../assets/image/saturn.jpg', moons: 6 },
     { name: "Uranus", distance: 500, size: 16, speed: 0.00075, texture: '../assets/image/uranus.jpg', moons: 3 },
     { name: "Neptune", distance: 600, size: 16, speed: 0.0006, texture: '../assets/image/neptune.jpg', moons: 1 },
-    { name: "Pluto", distance: 800, size: 8, speed: 0.0004, texture: '../assets/image/pluto.jpg', moons: 5 },
+    { name: "Pluto", distance: 800, size: 8, speed: 0.0004, texture: '../assets/image/dwarfPlanets/pluto.jpg', moons: 5 },
 ];
 
-// Saturn Ring
-const saturnRingTexture = new THREE.TextureLoader().load('../assets/image/saturn-ring.jpg');
-const saturnRingGeometry = new THREE.RingGeometry(22, 30, 64);
-const saturnRingMaterial = new THREE.MeshBasicMaterial({ map: saturnRingTexture, side: THREE.DoubleSide, transparent: true });
-const saturnRing = new THREE.Mesh(saturnRingGeometry, saturnRingMaterial);
-saturnRing.rotation.x = Math.PI / 2;
-saturnRing.position.set(
-    planetsData.find(planet => planet.name === "Saturn").distance,
-    0,
-    0
-);
-scene.add(saturnRing);
+// Constants and Color Map for Orbit Lines
+const orbitColors = {
+    "Mercury": 0xaaaaaa,
+    "Venus": 0xffa500,
+    "Earth": 0x0000ff,
+    "Mars": 0xff0000,
+    "Jupiter": 0xffff00,
+    "Saturn": 0xffd700,
+    "Uranus": 0x00ffff,
+    "Neptune": 0x00008b,
+    "Pluto": 0x8b4513
+};
+
+// Adding Orbits
+function createOrbit(distance, color) {
+    const curve = new THREE.EllipseCurve(0, 0, distance, distance, 0, 2 * Math.PI, false, 0);
+    const points = curve.getPoints(100);
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const material = new THREE.LineBasicMaterial({ color });
+    const orbit = new THREE.Line(geometry, material);
+    orbit.rotation.x = Math.PI / 2; // Rotate to lie on the x-z plane
+    scene.add(orbit);
+}
+
+planetsData.forEach(planet => {
+    createOrbit(planet.distance, orbitColors[planet.name]);
+});
+
+// Famous Satellites
+const satellites = [
+    { name: "Hubble", planet: "Earth", distance: 190, size: 3, speed: 0.0025, texture: '../assets/image/sun.jpg' },
+    { name: "Voyager 1", planet: "Jupiter", distance: 500, size: 3, speed: 0.0009, texture: '../assets/image/sun.jpg' },
+    { name: "Voyager 2", planet: "Saturn", distance: 600, size: 3, speed: 0.001, texture: '../assets/image/sun.jpg' },
+    { name: "Cassini", planet: "Saturn", distance: 410, size: 3, speed: 0.00075, texture: '../assets/image/sun.jpg' }
+];
+
+const satelliteMeshes = [];
+satellites.forEach(satellite => {
+    const texture = new THREE.TextureLoader().load(satellite.texture);
+    const satelliteMesh = new THREE.Mesh(new THREE.SphereGeometry(satellite.size, 16, 16), new THREE.MeshBasicMaterial({ map: texture }));
+    satelliteMesh.userData = { ...satellite, angle: Math.random() * Math.PI * 2 };
+    satelliteMeshes.push(satelliteMesh);
+    scene.add(satelliteMesh);
+});
 
 // Planets
 const planetMeshes = [];
@@ -90,71 +124,24 @@ planetsData.forEach(planet => {
     planetMesh.userData = { ...planet, angle: Math.random() * Math.PI * 2 };
     scene.add(planetMesh);
     planetMeshes.push(planetMesh);
-
-    // Add Moon to Earth
-    if (planet.name === "Earth") {
-        const moon = new THREE.Mesh(new THREE.SphereGeometry(4, 16, 16), new THREE.MeshBasicMaterial({ color: 0xaaaaaa }));
-        moon.position.set(36, 0, 0);
-        moon.userData = {
-            angle: Math.random() * Math.PI * 2,
-            distance: 36,
-            speed: 0.003,
-        };
-        planetMesh.add(moon);
-        let moonAngle = 0;
-        function rotateMoon() {
-            moonAngle += 0.01;
-            moon.position.x = Math.cos(moonAngle) * moon.userData.distance;
-            moon.position.z = Math.sin(moonAngle) * moon.userData.distance;
-            requestAnimationFrame(rotateMoon);
-        }
-        rotateMoon();
-    }
 });
-
-// Asteroid Belt
-const asteroidCount = 500;
-for (let i = 0; i < asteroidCount; i++) {
-    const asteroid = new THREE.Mesh(
-        new THREE.SphereGeometry(0.4, 8, 8),
-        new THREE.MeshBasicMaterial({ color: 0xaaaaaa })
-    );
-    const angle = Math.random() * Math.PI * 2;
-    const radius = 400 + Math.random() * 60;
-    asteroid.position.set(Math.cos(angle) * radius, (Math.random() - 0.5) * 5, Math.sin(angle) * radius);
-    asteroid.userData = { angle: angle, distance: radius, speed: 0.001 };
-    scene.add(asteroid);
-}
 
 // Animation Function
 function animate() {
     requestAnimationFrame(animate);
 
-    // Rotate Sun
-    sun.rotation.y += 0.0005;
-
-    // Rotate Planets
+    // Rotate planets and satellites
     planetMeshes.forEach(planet => {
         planet.userData.angle += planet.userData.speed;
         planet.position.x = Math.cos(planet.userData.angle) * planet.userData.distance;
         planet.position.z = Math.sin(planet.userData.angle) * planet.userData.distance;
-
-        // Rotate Moon
-        if (planet.name === "Earth") {
-            const moon = planet.children[0];
-            moon.userData.angle += moon.userData.speed;
-            moon.position.x = Math.cos(moon.userData.angle) * moon.userData.distance;
-            moon.position.z = Math.sin(moon.userData.angle) * moon.userData.distance;
-        }
     });
 
-    // Rotate Asteroids
-    scene.children.forEach(object => {
-        if (object.userData && object.userData.speed) {
-            object.userData.angle += object.userData.speed;
-            object.position.x = Math.cos(object.userData.angle) * object.userData.distance;
-            object.position.z = Math.sin(object.userData.angle) * object.userData.distance;
-        }
+    satelliteMeshes.forEach(satellite => {
+        const parentPlanet = planetMeshes.find(p => p.userData.name === satellite.userData.planet);
+        satellite.userData.angle += satellite.userData.speed;
+        satellite.position.x = parentPlanet.position.x + Math.cos(satellite.userData.angle) * satellite.userData.distance;
+        satellite.position.z = parentPlanet.position.z + Math.sin(satellite.userData.angle) * satellite.userData.distance;
     });
 
     renderer.render(scene, camera);
@@ -324,5 +311,4 @@ slider.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.3)';
 
 sliderContainer.appendChild(slider);
 document.body.appendChild(sliderContainer);
-
 
