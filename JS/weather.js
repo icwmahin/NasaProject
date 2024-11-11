@@ -46,7 +46,7 @@ const searchWeather = () => {
 };
 // search Default
 const initApp = () => {
-  valueSearch.value = "Washington";
+  valueSearch.value = "Bangladesh";
   searchWeather();
 };
 initApp();
